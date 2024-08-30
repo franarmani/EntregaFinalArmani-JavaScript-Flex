@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.navbar-container {
+    position: relative; 
+}
+
+.navbar {
+    background-color: #000; 
+    padding: 10px;
+    margin: 0;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0; 
+    z-index: 9999; 
+}
+
+.navbar-brand {
+    margin-left: 20px; 
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.logoverde {
+    color: #09ff00; 
+}
+
+.navbar-nav .nav-link {
+    color: #fff; 
+    padding: 10px 15px; 
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    border-radius: 10px; 
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    background-color: #09ff00; 
+    color: #000; 
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.carrito {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-right: 1px solid #ddd;
+}
+
+.carrito-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.carrito-item-details {
+    flex: 2;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.carrito-item-details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.carrito-item-price {
+    flex: 1;
+    text-align: right;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.carrito-total p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+}
+
+.cantidad-container .btn {
+    background-color: #09ff00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 20px; 
+    height: 20px; 
+    font-size: 14px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
+    margin: 0 2px;
+    transition: transform 0.2s ease, background-color 0.2s ease; 
+}
+
+.cantidad-container .btn:hover {
+    background-color: #12830f; 
+    transform: scale(1.2); 
+    font-weight: bold;
+}
+
+.carrito-item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}
+
+.carrito-item-price .btn-danger {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: auto; 
+    height: auto; 
+    font-size: 14px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    margin-top: 5px;
+    transition: transform 0.2s ease, background-color 0.2s ease; 
+}
+
+.carrito-item-price .btn-danger:hover {
+    background-color: #d32f2f; 
+    transform: scale(1.1); 
+    font-weight: bold;
+}
+
+.cantidad-container span {
+    margin: 0 5px; 
+}
+
+.formulario {
+    flex: 1;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.formulario h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #09ff00;
+}
+
+.formulario .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.formulario .btn-primary {
+    background-color: #09ff00;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario .btn-primary:hover {
+    background-color: #07e600;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.popup-error {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    max-width: 400px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.cerrar-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#error-message {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cerrar-popup:hover {
+    background: #cc0000;
+    transform: scale(1.1); 
+}
+
+.popup-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.popup-content table th, .popup-content table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.popup-content table th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+.popup-content .btn {
+    background-color: #09ff00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.popup-content .btn:hover {
+    background-color: #07e600;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .navbar {
+        padding: 5px; 
+    }
+    .navbar-brand {
+        font-size: 1.2rem; 
+    }
+    .navbar-nav {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .carrito {
+        margin-bottom: 20px; 
+    }
+    .formulario {
+        max-width: 100%; 
+    }
+    .popup-content {
+        width: 90%; 
+    }
+}
+
+.footer {
+    padding: 40px 0;
+    background-color: #343a40; 
+    color: #fff; 
+}
+
+.footer a {
+    color: #09ff00; 
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline; 
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    font-size: 24px; 
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #09ff00; 
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.container-footer {
+    max-width: 1140px; 
+    margin: 0 auto; 
+}
