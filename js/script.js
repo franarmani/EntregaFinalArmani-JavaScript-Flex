@@ -150,4 +150,10 @@ function setActiveLink(event) {
     event.target.classList.add('active');
 }
 
+function cerrarMensaje() {
+    const mensajePopup = document.getElementById('mensaje-popup');
+    mensajePopup.classList.remove('active');
+}
+
+
 navLinks.forEach(link => link.addEventListener('click', setActiveLink));
