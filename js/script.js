@@ -1,21 +1,19 @@
-const productos = [
-    { id: 1, nombre: 'Remera Algodón', precio: 30000, imagen: '/img/productos/remera.jpeg' },
-    { id: 2, nombre: 'Short', precio: 20000, imagen: '/img/productos/short.jpeg' },
-    { id: 3, nombre: 'Joggin', precio: 30000, imagen: '/img/productos/joggin.jpeg' },
-    { id: 4, nombre: 'Remera Deportiva', precio: 30000, imagen: '/img/productos/REMERA-deportiva.jpg' },
-    { id: 5, nombre: 'Gorrito Lana', precio: 10000, imagen: '/img/productos/GORRITO.jpeg' },
-    { id: 6, nombre: 'Gorra', precio: 10000, imagen: '/img/productos/gorra.jpeg' },
-    { id: 7, nombre: 'Musculosa', precio: 30000, imagen: '/img/productos/musculosa.jpeg' },
-    { id: 8, nombre: 'Drop 1', precio: 45000, imagen: '/img/productos/1.jpeg' },
-    { id: 9, nombre: 'Drop 2', precio: 45000, imagen: '/img/productos/2.jpeg' },
-    { id: 10, nombre: 'Drop 3', precio: 45000, imagen: '/img/productos/3.jpeg' },
-    { id: 11, nombre: 'Drop 4', precio: 45000, imagen: '/img/productos/4.jpeg' },
-    { id: 12, nombre: 'Drop 5', precio: 45000, imagen: '/img/productos/5.jpeg' }
-];
+const productosUrl = './js/productos.json'; 
+let productos = []; 
+let carrito = [];
 
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+async function cargarProductos() {
+    try {
+        const response = await fetch(productosUrl);
+        if (!response.ok) throw new Error('Error al cargar los productos');
+        productos = await response.json(); 
+        mostrarProductos(productos);
+    } catch (error) {
+        console.error('Error en la carga de productos:', error);
+    }
+}
 
-function mostrarProductos() {
+function mostrarProductos(productos) {
     const container = document.getElementById('productos-container');
     container.innerHTML = productos.map(producto => `
         <div class="producto">
@@ -34,10 +32,10 @@ function mostrarMensaje(mensaje = 'Producto agregado') {
 
     setTimeout(() => {
         mensajePopup.classList.remove('active');
-    }, 5000);
+    }, 5000); 
 }
 
-function vaciarCarrito() {
+async function vaciarCarrito() {
     carrito = [];
     actualizarCarrito();
     mostrarMensaje('Carrito vacío');
@@ -45,16 +43,20 @@ function vaciarCarrito() {
     ocultarCarrito();
 }
 
-function reproducirSonido() {
-    document.getElementById('sonido-agregado').play();
+function reproducirSonido(id) {
+    document.getElementById(id).play();
+}
+
+function reproducirSonidoAgregado() {
+    reproducirSonido('sonido-agregado');
 }
 
 function reproducirSonidoTacho() {
-    document.getElementById('sonido-tacho').play();
+    reproducirSonido('sonido-tacho');
 }
 
 function agregarAlCarrito(id) {
-    const producto = productos.find(p => p.id === id);
+    const producto = productos.find(p => p.id === id); 
     if (producto) {
         const productoEnCarrito = carrito.find(p => p.id === id);
         if (productoEnCarrito) {
@@ -64,7 +66,7 @@ function agregarAlCarrito(id) {
         }
         actualizarCarrito();
         mostrarMensaje(`Producto agregado: ${producto.nombre}`);
-        reproducirSonido();
+        reproducirSonidoAgregado();
         document.getElementById('carrito-icon').classList.add('active');
     }
 }
@@ -123,37 +125,12 @@ function actualizarCarrito() {
     localStorage.setItem('totalAcumulado', total);
 }
 
-function toggleCarritoInfo() {
-    document.getElementById('carrito-info').classList.toggle('active');
-}
-
 function ocultarCarrito() {
     const carritoInfo = document.getElementById('carrito-info');
     carritoInfo.classList.remove('active');
-    document.getElementById('carrito-icon').classList.remove('active');
 }
-
-document.getElementById('carrito-icon').addEventListener('click', event => {
-    event.preventDefault();
-    toggleCarritoInfo();
-});
 
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarProductos();
-    actualizarCarrito();
+    cargarProductos(); 
+    actualizarCarrito(); 
 });
-
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-function setActiveLink(event) {
-    navLinks.forEach(link => link.classList.remove('active'));
-    event.target.classList.add('active');
-}
-
-function cerrarMensaje() {
-    const mensajePopup = document.getElementById('mensaje-popup');
-    mensajePopup.classList.remove('active');
-}
-
-
-navLinks.forEach(link => link.addEventListener('click', setActiveLink));

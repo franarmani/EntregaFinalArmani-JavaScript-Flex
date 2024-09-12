@@ -1,0 +1,14 @@
+[
+    { "id": 1, "nombre": "Remera Algodón", "precio": 30000, "imagen": "/img/productos/remera.jpeg" },
+    { "id": 2, "nombre": "Short", "precio": 20000, "imagen": "/img/productos/short.jpeg" },
+    { "id": 3, "nombre": "Joggin", "precio": 30000, "imagen": "/img/productos/joggin.jpeg" },
+    { "id": 4, "nombre": "Remera Deportiva", "precio": 30000, "imagen": "/img/productos/REMERA-deportiva.jpg" },
+    { "id": 5, "nombre": "Gorrito Lana", "precio": 10000, "imagen": "/img/productos/GORRITO.jpeg" },
+    { "id": 6, "nombre": "Gorra", "precio": 10000, "imagen": "/img/productos/gorra.jpeg" },
+    { "id": 7, "nombre": "Musculosa", "precio": 30000, "imagen": "/img/productos/musculosa.jpeg" },
+    { "id": 8, "nombre": "Drop 1", "precio": 45000, "imagen": "/img/productos/1.jpeg" },
+    { "id": 9, "nombre": "Drop 2", "precio": 45000, "imagen": "/img/productos/2.jpeg" },
+    { "id": 10, "nombre": "Drop 3", "precio": 45000, "imagen": "/img/productos/3.jpeg" },
+    { "id": 11, "nombre": "Drop 4", "precio": 45000, "imagen": "/img/productos/4.jpeg" },
+    { "id": 12, "nombre": "Drop 5", "precio": 45000, "imagen": "/img/productos/5.jpeg" }
+]
